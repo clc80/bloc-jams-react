@@ -31,6 +31,15 @@ this.audioElement.src = album.songs[0].audioSrc;
     this.audioElement.src = song.audioSrc;
     this.setState({ currentSong: song });
   }
+  handleSongClick(song) {
+    const isSameSong = this.state.currentSong === song;
+    if (this.state.isPlaying && isSameSong) {
+      this.pause();
+    } else {
+      if(!isSameSong) { this.setSong(song); }
+      this.play();
+    }
+  }
 
   render() {
     return (
@@ -61,7 +70,10 @@ this.audioElement.src = album.songs[0].audioSrc;
           <tbody>
             {
               this.state.album.songs.map( (song, index) =>
-                <tr className="song" key={index}>
+                <tr className="song"
+                  key={index}
+                  onClick={() => this.handleSongClick(song)}
+                  >
 
                   <td>{index + 1}</td>
                   <td>{song.title}</td>
