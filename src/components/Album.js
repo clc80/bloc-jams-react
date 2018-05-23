@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import albumData from '../data/albums'
+import albumData from '../data/albums';
 
 class Album extends Component {
   constructor(props) {
@@ -38,6 +38,22 @@ this.audioElement.src = album.songs[0].audioSrc;
     } else {
       if(!isSameSong) { this.setSong(song); }
       this.play();
+      console.log(song);
+    }
+  }
+  mouseEnter(e) {
+      e.target.className = 'ion-md-play'
+    }
+
+  mouseLeave(e) {
+    e.target.className = "song-number"
+  }
+
+  playOrPause(e) {
+    if(this.state.isPlaying) {
+      e.target.className = "ion-md-play"
+    } else {
+      e.target.className = "ion-md-pause"
     }
   }
 
@@ -72,10 +88,15 @@ this.audioElement.src = album.songs[0].audioSrc;
               this.state.album.songs.map( (song, index) =>
                 <tr className="song"
                   key={index}
-                  onClick={() => this.handleSongClick(song)}
-                  >
-
-                  <td>{index + 1}</td>
+                  onClick={() => this.handleSongClick(song)}>
+                  <td id={index} className="song-number" >
+                    <span
+                      onMouseEnter={(e) => this.mouseEnter(e) }
+                      onMouseLeave={(e) => this.mouseLeave(e) }
+                      onClick={(e) => this.playOrPause(e) }>
+                        {index + 1}
+                      </span>
+                      </td>
                   <td>{song.title}</td>
                   <td>{song.duration}</td>
                 </tr>
