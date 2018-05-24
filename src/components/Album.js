@@ -43,8 +43,8 @@ this.audioElement.src = album.songs[0].audioSrc;
     }
   }
   mouseEnter(e) {
-      e.target.className = 'ion-md-play'
-    }
+    e.target.className = 'ion-md-play'
+  }
 
   mouseLeave(e) {
     e.target.className = "song-number"
@@ -105,7 +105,11 @@ this.audioElement.src = album.songs[0].audioSrc;
           }
           </tbody>
         </table>
-        <PlayerBar isPlaying={this.state.isPlaying} currentSong={this.state.currentSong} />
+        <PlayerBar
+          isPlaying={this.state.isPlaying}
+          currentSong={this.state.currentSong}
+          handleSongClick={ () => this.handleSongClick(this.state.currentSong)} 
+        />
       </section>
     );
   }
