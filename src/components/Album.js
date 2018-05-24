@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import albumData from '../data/albums';
+import PlayerBar from './PlayerBar';
 
 class Album extends Component {
   constructor(props) {
@@ -104,6 +105,7 @@ this.audioElement.src = album.songs[0].audioSrc;
           }
           </tbody>
         </table>
+        <PlayerBar />
       </section>
     );
   }
