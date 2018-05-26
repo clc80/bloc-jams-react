@@ -13,6 +13,8 @@ class Album extends Component {
   this.state = {
   album: album,
   currentSong: album.songs[0],
+  curretTime: 0,
+  duration: album.songs[0].duration,
   isPlaying: false
 };
 
@@ -121,6 +123,8 @@ this.audioElement.src = album.songs[0].audioSrc;
         <PlayerBar
           isPlaying={this.state.isPlaying}
           currentSong={this.state.currentSong}
+          currentTime={this.audioElement.currentTime}
+          duration={this.audioElement.duration}
           handleSongClick={() => this.handleSongClick(this.state.currentSong)}
           handlePrevClick={() => this.handlePrevClick()}
           handleNextClick={() => this.handleNextClick()}
