@@ -20,7 +20,23 @@ class Album extends Component {
 
 this.audioElement = document.createElement('audio');
 this.audioElement.src = album.songs[0].audioSrc;
-
+  }
+  componentDidMount() {
+  this.eventListeners = {
+    timeupdate: e => {
+      this.setState({ currentTime: this.audioElement.currentTime });
+    },
+    durationchange: e => {
+      this.setState({ duration: this.audioElement.duration });
+    }
+  };
+  this.audioElement.addEventListener('timeupdate', this.eventListeners.timeupdate);
+  this.audioElement.addEventListener('durationChange', this.eventListeners.durationchange);
+  }
+  componentWillUnmount() {
+    this.audioElement.src = null;
+    this.audioElement.removeEventListener('timeupdate', this.eventListeners.timeupdate);
+    this.audioElement.removeEventListener('durationChange', this.eventListeners.durationchange);
   }
   play() {
     this.audioElement.play();
@@ -56,6 +72,11 @@ this.audioElement.src = album.songs[0].audioSrc;
     const newSong = this.state.album.songs[newIndex];
     this.setSong(newSong);
     this.play();
+  }
+  handleTimeChange(e) {
+    const newTime = this.audioElement.duration * e.target.value;
+    this.audioElement.currentTime = newTime;
+    this.setState({ currentTime: newTime });
   }
   mouseEnter(e) {
     e.target.className = 'ion-md-play'
@@ -128,6 +149,7 @@ this.audioElement.src = album.songs[0].audioSrc;
           handleSongClick={() => this.handleSongClick(this.state.currentSong)}
           handlePrevClick={() => this.handlePrevClick()}
           handleNextClick={() => this.handleNextClick()}
+          handleTimeChange={(e) => this.handleTimeChange(e)}
         />
       </section>
     );
