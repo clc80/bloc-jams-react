@@ -5,7 +5,10 @@ class PlayerBar extends Component {
     return(
       <section className="player-bar">
         <section id="buttons">
-          <button id="previous">
+          <button
+            id="previous"
+            onClick={this.props.handlePrevClick}
+          >
             <span className="ion-md-skip-backward"></span>
           </button>
           <button
