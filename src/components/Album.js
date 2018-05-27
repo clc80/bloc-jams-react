@@ -84,6 +84,21 @@ this.audioElement.src = album.songs[0].audioSrc;
     this.audioElement.currentTime = newTime;
     this.setState({ currentTime: newTime });
   }
+  formatTime(time) {
+    if (isNaN(time) === true || time === undefined ) {
+     return '-:--';
+   }
+    var minutes = Math.floor(time / 60);
+    var seconds = Math.floor(time - minutes * 60);
+
+    if (minutes < 10 ) {
+      minutes = '0' + minutes.toString();
+    }
+    if (seconds < 10) {
+      seconds = '0'+ seconds.toString();
+    }
+    return minutes + ":" + seconds
+  }
   handleVolumeChange(e) {
     const newVolume = e.target.value;
     this.audioElement.volume = newVolume;
@@ -163,6 +178,7 @@ this.audioElement.src = album.songs[0].audioSrc;
           handleNextClick={() => this.handleNextClick()}
           handleTimeChange={(e) => this.handleTimeChange(e)}
           handleVolumeChange={(e) => this.handleVolumeChange(e)}
+          formatTime={(time) => this.formatTime(time)}
         />
       </section>
     );
