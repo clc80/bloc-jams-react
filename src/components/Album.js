@@ -161,7 +161,7 @@ this.audioElement.src = album.songs[0].audioSrc;
                       </span>
                       </td>
                   <td>{song.title}</td>
-                  <td>{song.duration}</td>
+                  <td>{this.formatTime(song.duration)}</td>
                 </tr>
               )
           }
