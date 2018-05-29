@@ -1,6 +1,7 @@
 body {
   background-color: #cea867;
 }
+/* CSS for App.js */
 header nav {
   padding-top: 20px;
   text-align: right;
@@ -13,7 +14,31 @@ header a {
 .title {
   color: #a23019;
   font-family: 'Lilita One', cursive;
+  font-size: 70px;
+  text-align: center;
 }
-.landing {
-  border: 3px solid black;
+/* CSS for Landing.js */
+.landing h1 {
+  color: #43312b;
+  font-family: 'Racing Sans One', cursive;
+  font-size: 60px;
+  margin: auto;
+  text-align: center;
+}
+.ion-md-musical-notes, .ion-md-phone-portrait, .ion-md-wifi {
+  color: #9b6a3f;
+  font-size: 64px;
+}
+.point {
+  float: left;
+  padding-top: 25px;
+  text-align: center;
+  width: 30%;
+}
+.point-title {
+  color: #9b6a3f;
+  font-family: 'Lilita One', cursive;
+}
+.point-description {
+  padding-top: 10px;
 }
