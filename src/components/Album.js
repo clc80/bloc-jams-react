@@ -123,11 +123,7 @@ this.audioElement.src = album.songs[0].audioSrc;
   render() {
     return (
       <section className="library">
-        <section id="album-info">
-          <img id="album-cover-art"
-            src={this.state.album.albumCover}
-            alt={this.state.album.title}
-          />
+        <div className="album-info">
           <div className="album-details">
             <h1 id="album-title">
               {this.state.album.title}
@@ -139,13 +135,20 @@ this.audioElement.src = album.songs[0].audioSrc;
               {this.state.album.releaseInfo}
             </div>
           </div>
-        </section>
+          <img id="album-cover-art"
+            src={this.state.album.albumCover}
+            alt={this.state.album.title}
+          />
+        </div>
+        <br/>
+        <div className="tableAndControls">
         <table id="song-list">
           <colgroup>
             <col id="song-number-column" />
             <col id="song-title-column" />
             <col id="song-duration-column" />
           </colgroup>
+
           <tbody>
             {
               this.state.album.songs.map( (song, index) =>
@@ -180,6 +183,7 @@ this.audioElement.src = album.songs[0].audioSrc;
           handleVolumeChange={(e) => this.handleVolumeChange(e)}
           formatTime={(time) => this.formatTime(time)}
         />
+      </div>
       </section>
     );
   }

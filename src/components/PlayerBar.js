@@ -36,6 +36,8 @@ class PlayerBar extends Component {
             onChange={this.props.handleTimeChange}
           />
           <div className="total-time">{this.props.formatTime(this.props.duration)}</div>
+          </section>
+          <br/>
           <section id="volume-control">
             <div className="icon ion-md-volume-low"></div>
             <input
@@ -50,7 +52,7 @@ class PlayerBar extends Component {
             <div className="icon ion-md-volume-high"></div>
           </section>
 
-        </section>
+
       </section>
     )
   }

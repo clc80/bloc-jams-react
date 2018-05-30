@@ -63,3 +63,42 @@ header a {
   color: #9b6a3f;
   text-align: center;
 }
+/* CSS for album.js */
+#album-cover-art {
+  width: 250px;
+}
+.album-details {
+color: #43312b;
+text-align: center;
+}
+#album-title {
+  font-family: 'Lilita One', cursive;
+  font-size: 45px;
+}
+
+table {
+  margin: auto;
+  text-align: center;
+  width: 20%;
+}
+/* CSS for player bar */
+.player-bar {
+  margin: auto;
+  padding-top: 20px;
+  text-align: center;
+  width: 65%;
+}
+#time-control, #volume-control  {
+  display: inline-flex;
+  margin-top: 20px;
+}
+input {
+  padding-left: 40px;
+  padding-right: 10px;
+}
+.current-time, .ion-md-volume-low {
+  padding-right: 10px;
+}
+.total-time, .ion-md-volume-high {
+  padding-left: 10px;
+}
