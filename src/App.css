@@ -42,3 +42,24 @@ header a {
 .point-description {
   padding-top: 10px;
 }
+/* CSS for library.js */
+.album-information {
+  display: inline-flex;
+}
+.library img {
+  border: 2px solid #43312b;
+  display: block;
+  margin: auto;
+  width: 75%;
+
+}
+.albumTitle {
+  color: #43312b;
+  font-family: 'Lilita One', cursive;
+  font-size: 30px;
+  text-align: center;
+}
+.albumArtist, .albumlength {
+  color: #9b6a3f;
+  text-align: center;
+}
