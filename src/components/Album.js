@@ -140,7 +140,7 @@ this.audioElement.src = album.songs[0].audioSrc;
             alt={this.state.album.title}
           />
         </div>
-        <br/>
+        
         <div className="tableAndControls">
         <table id="song-list">
           <colgroup>

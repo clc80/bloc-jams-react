@@ -92,10 +92,7 @@ table {
   display: inline-flex;
   margin-top: 20px;
 }
-input {
-  padding-left: 40px;
-  padding-right: 10px;
-}
+
 .current-time, .ion-md-volume-low {
   padding-right: 10px;
 }
